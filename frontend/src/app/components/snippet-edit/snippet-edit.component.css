@@ -1,0 +1,7 @@
+#code-form {
+    height: 260px ;
+    max-height: 260px;
+    min-height: 260px;
+    border: none;
+    padding:5px
+}

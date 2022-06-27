@@ -1,0 +1,8 @@
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-sm-12 col-lg-6 my-3" *ngFor="let snippet of snippets">
+            <app-snippet-icon (snippetClick)="onSnippetClick($event)" [snippet]="snippet"></app-snippet-icon>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+
+
+<form [formGroup]="snippetControl" (ngSubmit)="onSave()">
+<div class="card container mt-3 rounded-pill shadow">
+  <div class="m-lg-5 px-5 pt-5">
+    <div class="card-content container">
+      <div class="row p-4">
+        <div class="text-nowrap">
+          <h3> <input type="text" class="border-1 border-primary" formControlName="title" /></h3>
+          <span class="badge rounded-pill bg-success">
+            <select id="language-form" class="bg-success text-light" formControlName="language">
+              <option [ngValue]="null" disabled>Choose code language</option>
+              <option *ngFor="let lan of languages" [ngValue]="lan[0]">
+               {{ lan[0] }}
+              </option>
+            </select> 
+          </span>
+          <span class="badge rounded-pill bg-secondary m-1">
+            <select id="style-form" class="bg-secondary text-light" formControlName="style">
+              <option [ngValue]="null" disabled>Choose highlight style</option>
+              <option *ngFor="let st of styles" [ngValue]="st[0]">
+               {{ st[0] }}
+              </option>
+            </select> -
+          </span>
+        </div>
+      </div>
+        <div class="row card bg-dark rounded-pill text-danger p-5 code-container">
+
+          <div cass="card-content ">
+            <textarea id="code-form" class="w-100 text-danger bg-dark overflow-auto" formControlName="code"> </textarea>
+          </div>
+        </div>
+        <div class="col-4 text-center" *ngIf="snippet.created">
+          <span>Created on: {{ snippet.created }}</span>
+        </div>
+      <!-- <div>
+      <span>{{ snippet.owner }}</span>
+    </div> -->
+    </div>
+  </div>
+  <div class="card-content container px-5 pb-5">
+    <div class="row m-lg-3 px-5 pb-5">
+      <div class="col-sm-12 col-md-4 text-center">
+        <input
+          class="btn btn-primary rounded-pill col-8"
+          type="button"
+          routerLink="/snippets"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          value="Back"
+        />
+      </div>
+      <div class="col-sm-12 col-md-4 text-center">
+      </div>
+      <div class="col-sm-12 col-md-4 text-center">
+        <input class="btn btn-warning rounded-pill col-8"
+        type="submit" value="Save" [disabled]="!snippetControl.valid" />
+      </div>
+    </div>
+  </div>
+</div>
+</form>
